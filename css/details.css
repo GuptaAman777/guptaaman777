@@ -116,7 +116,7 @@
         width: 95%; /* Reduce overall width */
         max-width: 400px; /* Ensure it doesn't stretch too wide */
         padding: 10px; /* Reduce padding for a compact look */
-        font-size: 0.75rem; /* Make text even smaller */
+        font-size: 0.8rem; /* Make text even smaller */
         flex-direction: column; /* Stack content */
         text-align: center;
     }
@@ -126,7 +126,7 @@
     }
 
     .chapter-card p {
-        font-size: 0.7rem; /* Reduce paragraph text size */
+        font-size: 0.8rem; /* Reduce paragraph text size */
         word-wrap: break-word; /* Ensure proper wrapping */
     }
 }
