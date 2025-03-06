@@ -40,13 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
   fetch('data/comics.json')
     .then(response => response.json())
     .then(data => {
-      const sortedChapters = data.find(c => c.id === comicId).chapters.sort((a, b) => b.number - a.number);
-      comicData = {...data.find(c => c.id === comicId), chapters: sortedChapters};
-
-      if (!comicData) {
+      const foundComic = data.find(c => c.id === comicId);
+      if (!foundComic) {
         document.querySelector('.container').innerHTML = '<p>Comic not found</p>';
         return;
       }
+
+      const sortedChapters = foundComic.chapters.sort((a, b) => b.number - a.number);
+      comicData = { ...foundComic, chapters: sortedChapters };
 
       comicData.chapters.forEach((chapter, index) => {
         let option = document.createElement('option');
@@ -63,10 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.container').innerHTML = '<p>Chapter not found</p>';
         return;
       }
-
+      
       loadChapter();
     })
-    .catch(error => {
+    .catch(() => {
       document.querySelector('.container').innerHTML = '<p>Error loading chapter details.</p>';
     });
 
@@ -78,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function loadChapter() {
     const chapter = comicData.chapters[currentChapterIndex];
     chapterTitleEl.textContent = `Chapter ${chapter.number}: ${chapter.title}`;
-    chapterInfoEl.textContent = `Chapter ${currentChapterIndex + 1} of ${comicData.chapters.length}`;
+    chapterInfoEl.textContent = `Chapter ${comicData.chapters.length - currentChapterIndex} of ${comicData.chapters.length}`;
 
     pageContainer.innerHTML = '';
     if (Array.isArray(chapter.pages) && chapter.pages.length) {
@@ -109,8 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
       pageContainer.innerHTML = '<p>No pages available for this chapter.</p>';
     }
 
-    // FIXED VISIBILITY CONDITIONS
-    prevChapterBtn.style.display = (currentChapterIndex >= 1) ? 'block' : 'none';
+    prevChapterBtn.style.display = (currentChapterIndex < comicData.chapters.length - 1 && currentChapterIndex >= 1) ? 'block' : 'none';
     nextChapterBtn.style.display = (currentChapterIndex > 0) ? 'block' : 'none';
   }
 
