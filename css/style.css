@@ -238,7 +238,7 @@ nav ul li a:hover::after {
 }
 
 .cta-button {
-  background: linear-gradient(45deg, #ff7b00, #ff006a);
+  background: linear-gradient(45deg, #0047ab, #ff006a);
   color: white;
   padding: 15px 30px;
   border-radius: 50px;
@@ -255,7 +255,7 @@ nav ul li a:hover::after {
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 7px 20px rgba(255, 0, 106, 0.6);
-  background: linear-gradient(45deg, #ff006a, #ff7b00);
+  background: linear-gradient(45deg, #0047ab, #ff7b00);
 }
 
 /* Responsive adjustments */
