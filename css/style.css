@@ -858,7 +858,7 @@ nav ul li a:hover::after {
 }
 
 .team-member-modal .favorite-item {
-  background-color: rgba(255, 152, 0, 0.2);
+  background-color: #133f6a;
   color: var(--primary-color);
   padding: 5px 10px;
   border-radius: 30px;
