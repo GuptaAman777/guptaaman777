@@ -2,6 +2,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // Update current year in the footer
   document.getElementById("currentYear").textContent = new Date().getFullYear();
 
+  // Mobile menu toggle
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  menuToggle.addEventListener("click", function () {
+    navMenu.classList.toggle("active");
+  });
+
   // Helper function to retrieve query parameters (e.g., ?id=1)
   function getQueryParam(param) {
     const params = new URLSearchParams(window.location.search);
