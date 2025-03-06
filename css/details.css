@@ -95,20 +95,27 @@
 }
 
 .chapter-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--background-card);
-  padding: 30px;
-  border-radius: 5px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
-  opacity: 0; 
-  transform: translateY(20px); /* Keep this for the initial animation */
-  animation: fadeIn 0.5s forwards;
-  animation-delay: calc(0.7s + (var(--delay) * 0.1s));
-  margin: 0 auto; /* Add this to center horizontally */
-  max-width: 80%; /* Optional: Limit the width for better readability */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--background-card);
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+    animation-delay: calc(0.7s + (var(--delay) * 0.1s));
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .chapter-card {
+        width: 90%; /* Or any desired width for mobile */
+        max-width: none; /* remove the max-width for mobile */
+    }
 }
 
 .chapter-card:hover {
