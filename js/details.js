@@ -2,12 +2,23 @@ document.addEventListener('DOMContentLoaded', function() {
   // Update current year in the footer
   document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-  // Mobile menu toggle
+   // Toggle mobile navigation when hamburger icon is clicked
   const menuToggle = document.getElementById("menuToggle");
   const navMenu = document.getElementById("navMenu");
-
-  menuToggle.addEventListener("click", function () {
+  
+  menuToggle.addEventListener("click", function() {
+    menuToggle.classList.toggle("active");
     navMenu.classList.toggle("active");
+  });
+  
+  // Close mobile nav when a link is clicked
+  document.querySelectorAll('#navMenu a').forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 768) {
+        menuToggle.classList.remove("active");
+        navMenu.classList.remove("active");
+      }
+    });
   });
 
   // Helper function to retrieve query parameters (e.g., ?id=1)
