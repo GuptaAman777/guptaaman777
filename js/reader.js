@@ -1,17 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Update current year in footer
   document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-  // Toggle mobile navigation when hamburger icon is clicked
   const menuToggle = document.getElementById("menuToggle");
   const navMenu = document.getElementById("navMenu");
-  
+
   menuToggle.addEventListener("click", function() {
     menuToggle.classList.toggle("active");
     navMenu.classList.toggle("active");
   });
-  
-  // Close mobile nav when a link is clicked
+
   document.querySelectorAll('#navMenu a').forEach(link => {
     link.addEventListener('click', function() {
       if (window.innerWidth <= 768) {
@@ -21,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Get query parameters: comicId and chapter number
   const params = new URLSearchParams(window.location.search);
   const comicId = params.get('comicId');
   const chapterParam = params.get('chapter');
@@ -31,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
 
-  // Elements
   const chapterTitleEl = document.getElementById('chapter-title');
   const pageContainer = document.getElementById('page-container');
   const chapterInfoEl = document.getElementById('chapterInfo');
@@ -41,8 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let comicData;
   let currentChapterIndex = -1;
-  
-  // Fetch the comics data
+
   fetch('data/comics.json')
     .then(response => response.json())
     .then(data => {
@@ -53,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.container').innerHTML = '<p>Comic not found</p>';
         return;
       }
-      
+
       comicData.chapters.forEach((chapter, index) => {
         let option = document.createElement('option');
         option.value = chapter.number;
@@ -64,11 +58,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         chapterSelect.appendChild(option);
       });
-      
+
       if (currentChapterIndex === -1) {
         document.querySelector('.container').innerHTML = '<p>Chapter not found</p>';
         return;
       }
+
       loadChapter();
     })
     .catch(error => {
@@ -90,22 +85,22 @@ document.addEventListener('DOMContentLoaded', function() {
       chapter.pages.forEach((pageUrl, index) => {
         const pageWrapper = document.createElement('div');
         pageWrapper.className = 'page-wrapper';
-        
+
         const pageNumberPlaceholder = document.createElement('div');
         pageNumberPlaceholder.className = 'page-number-placeholder';
         pageNumberPlaceholder.textContent = `Page ${index + 1}`;
-        
+
         const img = document.createElement('img');
         img.src = pageUrl;
         img.alt = `Page ${index + 1}`;
-        
+
         img.addEventListener('load', () => {
           pageNumberPlaceholder.style.display = 'none';
           img.style.display = 'block';
         });
-        
+
         img.style.display = 'none';
-        
+
         pageWrapper.appendChild(pageNumberPlaceholder);
         pageWrapper.appendChild(img);
         pageContainer.appendChild(pageWrapper);
@@ -113,8 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       pageContainer.innerHTML = '<p>No pages available for this chapter.</p>';
     }
-    
-    prevChapterBtn.style.display = (currentChapterIndex < comicData.chapters.length - 1) ? 'block' : 'none';
+
+    // FIXED VISIBILITY CONDITIONS
+    prevChapterBtn.style.display = (currentChapterIndex >= 1) ? 'block' : 'none';
     nextChapterBtn.style.display = (currentChapterIndex > 0) ? 'block' : 'none';
   }
 
