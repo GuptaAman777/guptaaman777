@@ -6,8 +6,8 @@
   "joinDate": "2024-11",
   "about": "Sleeps all day and has a very bad memory",
   "skills": ["Translation", "Localization", "Editing"],
-  "favorite_comics": [],
-  "projects": ["What Do You Do When You Suddenly Become An Immortal"],
+  "favorite_comics": ["What Do You Do When You Suddenly Become An Immortal"],
+  "projects": ["https://github.com/GuptaAman777/guptaaman777"],
   "contributions": "Translation and Management",
   "social": {
     "Instagram": "https://www.instagram.com/gupta_aman_777/",
