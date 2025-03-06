@@ -82,6 +82,7 @@
 .chapters h2 {
   color: var(--primary-color);
   margin-bottom: 1.5rem;
+  align-items: center;
 }
 
 .chapter-list {
