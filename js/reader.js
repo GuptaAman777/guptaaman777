@@ -115,15 +115,15 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   prevChapterBtn.addEventListener('click', () => {
-    if (currentChapterIndex < comicData.chapters.length - 1) {
-      const prevChapter = comicData.chapters[currentChapterIndex + 1];
+    if (currentChapterIndex < comicData.chapters.length + 1) {
+      const prevChapter = comicData.chapters[currentChapterIndex - 1];
       window.location.href = `reader.html?comicId=${comicId}&chapter=${prevChapter.number}`;
     }
   });
 
   nextChapterBtn.addEventListener('click', () => {
     if (currentChapterIndex > 0) {
-      const nextChapter = comicData.chapters[currentChapterIndex - 1];
+      const nextChapter = comicData.chapters[currentChapterIndex + 1];
       window.location.href = `reader.html?comicId=${comicId}&chapter=${nextChapter.number}`;
     }
   });
