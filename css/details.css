@@ -114,7 +114,7 @@
 @media (max-width: 768px) { /* Mobile styles */
     .chapter-card {
         width: 95%; /* Reduce overall width */
-        max-width: 400px; /* Ensure it doesn't stretch too wide */
+        max-width: 350px; /* Ensure it doesn't stretch too wide */
         padding: 10px; /* Reduce padding for a compact look */
         font-size: 0.8rem; /* Make text even smaller */
         flex-direction: column; /* Stack content */
