@@ -1,13 +1,13 @@
 /* Global Styles */
 :root {
-  --primary-color: #ff9800;
-  --secondary-color: #03a9f4;
-  --background-dark: #121212;
-  --background-darker: #0a0a0a;
-  --background-card: #2c2c2c;
-  --background-section: #1e1e1e;
-  --text-light: #e0e0e0;
-  --text-muted: #b0b0b0;
+  --primary-color: #0047ab; /* Royal Blue */
+  --secondary-color: #00aaff; /* Cyan Blue */
+  --background-dark: #060a17; /* Deep Navy */
+  --background-darker: #02060d; /* Almost Black Blue */
+  --background-card: #162447; /* Darker Blue */
+  --background-section: #050a15; /* Slightly Lighter Dark Blue */
+  --text-light: #e0e0e0; /* Light Text */
+  --text-muted: #a0b3cc; /* Muted Bluish-Gray */
 }
 
 html {
