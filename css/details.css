@@ -115,19 +115,19 @@
     .chapter-card {
         width: 90%;
         max-width: none;
-        padding: 20px; /* Reduce padding for better fit */
-        font-size: 0.9rem; /* Reduce font size for smaller screens */
+        padding: 16px; /* Reduced padding */
+        font-size: 0.72rem; /* 20% smaller than 0.9rem */
         flex-direction: column; /* Stack items vertically if needed */
-        text-align: center; /* Align text for better readability */
+        text-align: center;
     }
 
     .chapter-card h3 {
-        font-size: 1rem; /* Reduce heading size */
+        font-size: 0.8rem; /* 20% smaller than 1rem */
     }
 
     .chapter-card p {
-        font-size: 0.85rem; /* Adjust paragraph text */
-        word-wrap: break-word; /* Ensure text breaks properly */
+        font-size: 0.68rem; /* 20% smaller than 0.85rem */
+        word-wrap: break-word;
     }
 }
 
