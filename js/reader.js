@@ -2,10 +2,29 @@ document.addEventListener('DOMContentLoaded', function() {
   // Update current year in footer
   document.getElementById("currentYear").textContent = new Date().getFullYear();
 
+  // Toggle mobile navigation when hamburger icon is clicked
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+  
+  menuToggle.addEventListener("click", function() {
+    menuToggle.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+  
+  // Close mobile nav when a link is clicked
+  document.querySelectorAll('#navMenu a').forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 768) {
+        menuToggle.classList.remove("active");
+        navMenu.classList.remove("active");
+      }
+    });
+  });
+
   // Get query parameters: comicId and chapter number
   const params = new URLSearchParams(window.location.search);
   const comicId = params.get('comicId');
-  const chapterParam = params.get('chapter'); // chapter number as string
+  const chapterParam = params.get('chapter');
 
   if (!comicId || !chapterParam) {
     document.querySelector('.container').innerHTML = '<p>Comic ID or chapter number not specified in the URL. Please use ?comicId=1&chapter=1</p>';
@@ -25,14 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Fetch the comics data
   fetch('data/comics.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch comics data');
-      }
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
-      // Sort chapters in descending order
       const sortedChapters = data.find(c => c.id === comicId).chapters.sort((a, b) => b.number - a.number);
       comicData = {...data.find(c => c.id === comicId), chapters: sortedChapters};
 
@@ -41,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
-      // Populate the drop-down menu with chapters
       comicData.chapters.forEach((chapter, index) => {
         let option = document.createElement('option');
         option.value = chapter.number;
@@ -60,11 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
       loadChapter();
     })
     .catch(error => {
-      console.error('Error fetching comics data:', error);
       document.querySelector('.container').innerHTML = '<p>Error loading chapter details.</p>';
     });
 
-  // Handle drop-down chapter selection change
   chapterSelect.addEventListener('change', function() {
     const selectedChapterNumber = this.value;
     window.location.href = `reader.html?comicId=${comicId}&chapter=${selectedChapterNumber}`;
@@ -72,36 +82,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function loadChapter() {
     const chapter = comicData.chapters[currentChapterIndex];
-    // Set the chapter title
     chapterTitleEl.textContent = `Chapter ${chapter.number}: ${chapter.title}`;
-    // Update chapter info display in pagination
     chapterInfoEl.textContent = `Chapter ${currentChapterIndex + 1} of ${comicData.chapters.length}`;
 
-    // Clear current pages
     pageContainer.innerHTML = '';
-    // Display all pages of the chapter
     if (Array.isArray(chapter.pages) && chapter.pages.length) {
       chapter.pages.forEach((pageUrl, index) => {
         const pageWrapper = document.createElement('div');
         pageWrapper.className = 'page-wrapper';
         
-        // Create a page number placeholder
         const pageNumberPlaceholder = document.createElement('div');
         pageNumberPlaceholder.className = 'page-number-placeholder';
         pageNumberPlaceholder.textContent = `Page ${index + 1}`;
         
-        // Create the image
         const img = document.createElement('img');
         img.src = pageUrl;
         img.alt = `Page ${index + 1}`;
         
-        // Replace placeholder with image when loaded
         img.addEventListener('load', () => {
           pageNumberPlaceholder.style.display = 'none';
           img.style.display = 'block';
         });
         
-        // Initially hide the image
         img.style.display = 'none';
         
         pageWrapper.appendChild(pageNumberPlaceholder);
@@ -112,12 +114,10 @@ document.addEventListener('DOMContentLoaded', function() {
       pageContainer.innerHTML = '<p>No pages available for this chapter.</p>';
     }
     
-    // Update navigation buttons visibility and state
     prevChapterBtn.style.display = (currentChapterIndex < comicData.chapters.length - 1) ? 'block' : 'none';
     nextChapterBtn.style.display = (currentChapterIndex > 0) ? 'block' : 'none';
   }
 
-  // Chapter navigation event listeners
   prevChapterBtn.addEventListener('click', () => {
     if (currentChapterIndex < comicData.chapters.length - 1) {
       const prevChapter = comicData.chapters[currentChapterIndex + 1];
@@ -132,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Keyboard support: arrow keys for chapter navigation
   document.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowRight' && nextChapterBtn.style.display !== 'none') {
       nextChapterBtn.click();
