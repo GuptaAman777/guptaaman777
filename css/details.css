@@ -95,7 +95,6 @@
 }
 
 .chapter-card {
-  position: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -104,10 +103,12 @@
   border-radius: 5px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 0; 
+  transform: translateY(20px); /* Keep this for the initial animation */
   animation: fadeIn 0.5s forwards;
   animation-delay: calc(0.7s + (var(--delay) * 0.1s));
+  margin: 0 auto; /* Add this to center horizontally */
+  max-width: 80%; /* Optional: Limit the width for better readability */
 }
 
 .chapter-card:hover {
