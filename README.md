@@ -1,6 +1,6 @@
-# Alvanheim Website
+# GuptaAman777 Website
 
-Alvanheim is a dynamic, responsive website for a dedicated scanlation group. Our platform delivers high-quality translations of manga and manhwa, featuring dynamic content loading for comics, latest chapter releases, and team member profiles—all built with modern web standards.
+GuptaAman777 is a dynamic, responsive website for a dedicated scanlation group. Our platform delivers high-quality translations of manga and manhwa, featuring dynamic content loading for comics, latest chapter releases, and team member profiles—all built with modern web standards.
 
 ---
 
@@ -21,7 +21,7 @@ Alvanheim is a dynamic, responsive website for a dedicated scanlation group. Our
 
 ## Overview
 
-Alvanheim is designed to be the gateway for fans seeking translated comics. The website loads its content dynamically from JSON files and includes modern UI elements such as:
+GuptaAman777 is designed to be the gateway for fans seeking translated comics. The website loads its content dynamically from JSON files and includes modern UI elements such as:
 
 - A responsive hero section
 - Dynamic carousels for comics and chapters
@@ -71,6 +71,6 @@ Alvanheim is designed to be the gateway for fans seeking translated comics. The 
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/Alvamheim/alvanheim.in
+   git clone https://github.com/yourusername/GuptaAman777.git
    
-Note: You can only clone this git for educational purposes, if you want to use this template/theme for your own website, you must contact **Avebel** first and ask for permission. You also have to give credits somewhere in the website where it is clearly visible, with readable font, occupacy, size, and position.
+Note: You can only clone this git for educational purposes, if you want to use this template/theme for your own website, you must contact **GuptaAman777** first and ask for permission. You also have to give credits somewhere in the website where it is clearly visible, with readable font, occupacy, size, and position.
