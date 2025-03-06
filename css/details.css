@@ -113,21 +113,21 @@
 
 @media (max-width: 768px) { /* Adjust breakpoint as needed */
     .chapter-card {
-        width: 90%;
+        width: calc(100% - 40px); /* Ensures 20px margin on both sides */
         max-width: none;
-        padding: 16px; /* Reduced padding */
-        font-size: 0.72rem; /* 20% smaller than 0.9rem */
-        flex-direction: column; /* Stack items vertically if needed */
-        text-align: center;
+        padding: 15px; /* Reduce padding for a compact look */
+        font-size: 0.85rem; /* Make text slightly smaller */
+        flex-direction: column; /* Stack content for better fit */
+        text-align: center; /* Center align text */
     }
 
     .chapter-card h3 {
-        font-size: 0.8rem; /* 20% smaller than 1rem */
+        font-size: 0.95rem; /* Slightly smaller heading */
     }
 
     .chapter-card p {
-        font-size: 0.68rem; /* 20% smaller than 0.85rem */
-        word-wrap: break-word;
+        font-size: 0.8rem; /* Reduce paragraph text */
+        word-wrap: break-word; /* Ensure text doesn't overflow */
     }
 }
 
