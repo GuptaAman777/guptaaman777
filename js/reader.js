@@ -1,16 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("currentYear").textContent = new Date().getFullYear();
 
   const menuToggle = document.getElementById("menuToggle");
   const navMenu = document.getElementById("navMenu");
 
-  menuToggle.addEventListener("click", function() {
+  menuToggle.addEventListener("click", function () {
     menuToggle.classList.toggle("active");
     navMenu.classList.toggle("active");
   });
 
   document.querySelectorAll('#navMenu a').forEach(link => {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function () {
       if (window.innerWidth <= 768) {
         menuToggle.classList.remove("active");
         navMenu.classList.remove("active");
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      const sortedChapters = foundComic.chapters.sort((a, b) => b.number - a.number);
+      const sortedChapters = foundComic.chapters.sort((a, b) => a.number - b.number);
       comicData = { ...foundComic, chapters: sortedChapters };
 
       comicData.chapters.forEach((chapter, index) => {
@@ -64,14 +64,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.container').innerHTML = '<p>Chapter not found</p>';
         return;
       }
-      
+
       loadChapter();
     })
     .catch(() => {
       document.querySelector('.container').innerHTML = '<p>Error loading chapter details.</p>';
     });
 
-  chapterSelect.addEventListener('change', function() {
+  chapterSelect.addEventListener('change', function () {
     const selectedChapterNumber = this.value;
     window.location.href = `reader.html?comicId=${comicId}&chapter=${selectedChapterNumber}`;
   });
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function loadChapter() {
     const chapter = comicData.chapters[currentChapterIndex];
     chapterTitleEl.textContent = `Chapter ${chapter.number}: ${chapter.title}`;
-    chapterInfoEl.textContent = `Chapter ${comicData.chapters.length - currentChapterIndex} of ${comicData.chapters.length}`;
+    chapterInfoEl.textContent = `Chapter ${currentChapterIndex + 1} of ${comicData.chapters.length}`;
 
     pageContainer.innerHTML = '';
     if (Array.isArray(chapter.pages) && chapter.pages.length) {
@@ -110,25 +110,25 @@ document.addEventListener('DOMContentLoaded', function() {
       pageContainer.innerHTML = '<p>No pages available for this chapter.</p>';
     }
 
-    prevChapterBtn.style.display = (currentChapterIndex < comicData.chapters.length - 1 && currentChapterIndex >= 1) ? 'block' : 'none';
-    nextChapterBtn.style.display = (currentChapterIndex > 0) ? 'block' : 'none';
+    prevChapterBtn.style.display = (currentChapterIndex > 0) ? 'block' : 'none';
+    nextChapterBtn.style.display = (currentChapterIndex < comicData.chapters.length - 1) ? 'block' : 'none';
   }
 
   prevChapterBtn.addEventListener('click', () => {
-    if (currentChapterIndex < comicData.chapters.length + 1) {
+    if (currentChapterIndex > 0) {
       const prevChapter = comicData.chapters[currentChapterIndex - 1];
       window.location.href = `reader.html?comicId=${comicId}&chapter=${prevChapter.number}`;
     }
   });
 
   nextChapterBtn.addEventListener('click', () => {
-    if (currentChapterIndex > 0) {
+    if (currentChapterIndex < comicData.chapters.length - 1) {
       const nextChapter = comicData.chapters[currentChapterIndex + 1];
       window.location.href = `reader.html?comicId=${comicId}&chapter=${nextChapter.number}`;
     }
   });
 
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowRight' && nextChapterBtn.style.display !== 'none') {
       nextChapterBtn.click();
     } else if (e.key === 'ArrowLeft' && prevChapterBtn.style.display !== 'none') {
