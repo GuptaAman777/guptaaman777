@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comic Reader - Alvanheim</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Reader Page Styles -->
+  <link rel="stylesheet" href="css/reader.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Logo" />
+
+        <span>Alvanheim</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html#comics">Comics</a></li>
+          <li><a href="index.html#chapters">Releases</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="reader-header">
+        <h1 id="chapter-title">Loading Chapter...</h1>
+        <!-- Drop-down menu for chapter selection -->
+        <select id="chapterSelect"></select>
+      </section>
+      
+      <section class="reader-content">
+        <div id="page-container">
+          <!-- All comic page images will be displayed here -->
+        </div>
+        <!-- Pagination buttons now at the bottom of the chapter pages -->
+        <div class="chapter-pagination-bottom">
+          <button id="prevChapter" class="nav-btn" disabled>
+            <i class="fas fa-chevron-left"></i> Previous Chapter
+          </button>
+          <span id="chapterInfo">Chapter 0 of 0</span>
+          <button id="nextChapter" class="nav-btn" disabled>
+            Next Chapter <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="currentYear"></span> Alvanheim. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Reader Page JavaScript -->
+  <script src="js/reader.js"></script>
+</body>
+</html>

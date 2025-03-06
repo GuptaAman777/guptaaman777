@@ -1,0 +1,18 @@
+{
+  "id": "member-guptaman777",
+  "name": "GuptaAman777",
+  "avatar": "assets/fe6d96166d7b2a806b889f1c1e843542.png",
+  "role": "Translator - Leader",
+  "joinDate": "2024-11",
+  "about": "Sleeps all day and I'm the Leader.",
+  "skills": ["Translation", "Localization", "Editing"],
+  "favorite_comics": [],
+  "projects": [],
+  "contributions": "Translation and Management",
+  "social": {
+    "Instagram": "https://www.instagram.com/gupta_aman_777/",
+    "Github": "https://github.com/GuptaAman777",
+    "Youtube": "https://www.youtube.com/@guptaaman777"
+  },
+  "priority": true
+}

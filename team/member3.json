@@ -1,0 +1,18 @@
+{
+  "id": "member-k",
+  "name": "K",
+  "avatar": "assets/b086eb77e836ed6386dfd54b72a5c1c2.png",
+  "role": "Raw Provider",
+  "joinDate": "2023-01",
+  "about": "K provides essential raw data and resources for the team.",
+  "skills": ["Data Provision"],
+  "favorite_comics": [],
+  "projects": [],
+  "contributions": "",
+  "social": {
+    "twitter": "",
+    "github": "",
+    "linkedin": ""
+  },
+  "priority": true
+}

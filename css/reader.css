@@ -1,0 +1,99 @@
+/* Inherit main site styles */
+@import url("css/style.css");
+
+/* Reader page specific styles */
+.reader-header {
+  text-align: center;
+  padding: 30px 0;
+  animation: fadeIn 0.8s forwards;
+}
+
+#chapter-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+}
+
+/* Chapter drop-down menu styles */
+#chapterSelect {
+  font-size: 1rem;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 10px;
+  background: #fff;
+  color: #333;
+}
+
+/* Comic Page Container - Updated for seamless pages */
+#page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: block;  /* Removed flex and gap properties */
+}
+
+#page-container img {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;  /* Remove rounded corners for a continuous look */
+  box-shadow: none;  /* Remove shadows to avoid separation */
+  transition: none;  /* Remove any transition effects */
+}
+
+/* Bottom pagination container */
+.chapter-pagination-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+#chapterInfo {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.nav-btn {
+  background: linear-gradient(45deg, var(--primary-color), #e68a00);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.nav-btn:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.nav-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+@media screen and (max-width: 768px) {
+  #page-container {
+    max-width: 100%;
+  }
+  .page-wrapper {
+  position: relative;
+  min-height: 300px; /* Adjust based on your design */
+}
+
+.page-number-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: #888;
+}
+  }

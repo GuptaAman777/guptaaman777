@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comic Details - Alvanheim</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/details.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Logo" />
+        <span>Alvanheim</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html#comics">Comics</a></li>
+          <li><a href="index.html#chapters">Releases</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="comic-detail">
+        <h1 id="comic-title">Loading...</h1>
+        <img id="cover-image" src="" alt="Comic Cover" />
+        <div id="comic-info"></div>
+      </section>
+
+      <section class="chapters">
+        <h2>Chapters</h2>
+        <div class="chapter-list" id="chapterList">
+          <!-- Chapter cards will be injected here -->
+        </div>
+        <div class="show-more-container">
+          <button id="prevPage" class="read-button" disabled>
+            <i class="fas fa-chevron-left"></i> Previous
+          </button>
+          <span id="pageInfo"></span>
+          <button id="nextPage" class="read-button" disabled>
+            Next <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="currentYear"></span> Alvanheim. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="js/details.js"></script>
+</body>
+</html>
