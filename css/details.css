@@ -111,23 +111,23 @@
     max-width: 80%;
 }
 
-@media (max-width: 768px) { /* Adjust breakpoint as needed */
+@media (max-width: 768px) { /* Mobile styles */
     .chapter-card {
-        width: calc(100% - 40px); /* Ensures 20px margin on both sides */
-        max-width: none;
-        padding: 15px; /* Reduce padding for a compact look */
-        font-size: 0.85rem; /* Make text slightly smaller */
-        flex-direction: column; /* Stack content for better fit */
-        text-align: center; /* Center align text */
+        width: 80%; /* Reduce overall width */
+        max-width: 300px; /* Ensure it doesn't stretch too wide */
+        padding: 10px; /* Reduce padding for a compact look */
+        font-size: 0.75rem; /* Make text even smaller */
+        flex-direction: column; /* Stack content */
+        text-align: center;
     }
 
     .chapter-card h3 {
-        font-size: 0.95rem; /* Slightly smaller heading */
+        font-size: 0.85rem; /* Reduce heading size */
     }
 
     .chapter-card p {
-        font-size: 0.8rem; /* Reduce paragraph text */
-        word-wrap: break-word; /* Ensure text doesn't overflow */
+        font-size: 0.7rem; /* Reduce paragraph text size */
+        word-wrap: break-word; /* Ensure proper wrapping */
     }
 }
 
