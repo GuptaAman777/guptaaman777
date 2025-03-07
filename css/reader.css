@@ -30,7 +30,7 @@
 #page-container {
   max-width: 800px;
   margin: 0 auto;
-  display: block;  /* Removed flex and gap properties */
+  display: block;
 }
 
 #page-container img {
@@ -38,9 +38,9 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  border-radius: 0;  /* Remove rounded corners for a continuous look */
-  box-shadow: none;  /* Remove shadows to avoid separation */
-  transition: none;  /* Remove any transition effects */
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
 }
 
 /* Bottom pagination container */
@@ -58,14 +58,16 @@
 }
 
 .nav-btn {
+  position: relative;
   background: linear-gradient(45deg, var(--primary-color), #e68a00);
   color: white;
   padding: 10px 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  overflow: hidden;
 }
 
 .nav-btn:disabled {
@@ -79,21 +81,51 @@
   box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
+/* Shining Gradient Animation (Continuous on Hover for Desktops) */
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 80%);
+  opacity: 0;
+}
+
+.nav-btn:hover::before {
+  animation: shine 2s infinite linear;
+  opacity: 1;
+}
+
+/* Continuous Shining Effect on Mobile (768px and below) */
+@media screen and (max-width: 768px) {
+  .nav-btn::before {
+    animation: shine 2s infinite linear;
+    opacity: 1;
+  }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
 @media screen and (max-width: 768px) {
   #page-container {
     max-width: 100%;
   }
   .page-wrapper {
-  position: relative;
-  min-height: 300px; /* Adjust based on your design */
-}
-
-.page-number-placeholder {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 18px;
-  color: #888;
-}
+    position: relative;
+    min-height: 300px;
   }
+
+  .page-number-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: #888;
+  }
+}
