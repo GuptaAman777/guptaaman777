@@ -49,6 +49,12 @@ document.addEventListener('DOMContentLoaded', function () {
       const sortedChapters = foundComic.chapters.sort((a, b) => a.number - b.number);
       comicData = { ...foundComic, chapters: sortedChapters };
 
+      // Update the Chapter List button link dynamically
+      const chapterListBtn = document.querySelector('#chapterListLink');
+      if (chapterListBtn) {
+        chapterListBtn.href = `details.html?id=${comicId}`;
+      }
+
       comicData.chapters.forEach((chapter, index) => {
         let option = document.createElement('option');
         option.value = chapter.number;

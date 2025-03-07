@@ -2,15 +2,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // Update current year in the footer
   document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-   // Toggle mobile navigation when hamburger icon is clicked
+  // Toggle mobile navigation when hamburger icon is clicked
   const menuToggle = document.getElementById("menuToggle");
   const navMenu = document.getElementById("navMenu");
-  
+
   menuToggle.addEventListener("click", function() {
     menuToggle.classList.toggle("active");
     navMenu.classList.toggle("active");
   });
-  
+
   // Close mobile nav when a link is clicked
   document.querySelectorAll('#navMenu a').forEach(link => {
     link.addEventListener('click', function() {
@@ -69,10 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
         function renderChapters() {
           const chapterList = document.getElementById('chapterList');
           chapterList.innerHTML = '';
-          // Calculate the chapters to display on the current page
           const start = (currentPage - 1) * itemsPerPage;
           const end = start + itemsPerPage;
           const chaptersToShow = chapters.slice(start, end);
+
           chaptersToShow.forEach((chapter, index) => {
             // Create a chapter card
             const chapterCard = document.createElement('div');
@@ -84,21 +84,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="chapter-date">Released: ${chapter.releaseDate}</p>
               </div>
               <div class="chapter-actions">
-                <button class="read-chapter-btn" onclick="openChapterReader(${chapter.number})">Read</button>
+                <button class="read-chapter-btn">Read</button>
               </div>
             `;
+
+            // Redirect to reader when clicking on the whole card
+            chapterCard.addEventListener('click', () => {
+              window.location.href = `reader.html?comicId=${comicId}&chapter=${chapter.number}`;
+            });
+
             chapterList.appendChild(chapterCard);
           });
+
           // Update pagination info and button states
           document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages}`;
           document.getElementById('prevPage').disabled = currentPage === 1;
           document.getElementById('nextPage').disabled = currentPage === totalPages;
-        }
-
-        // Function to open chapter reader (to be implemented)
-        window.openChapterReader = function(chapterNumber) {
-          // Redirect to chapter reader page or open a modal
-          window.location.href = `reader.html?comicId=${comicId}&chapter=${chapterNumber}`;
         }
 
         renderChapters();
