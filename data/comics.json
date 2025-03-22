@@ -1,60 +1,139 @@
 [
-  {
-    "id": "1",
-    "title": "What Do You Do When You Suddenly Become An Immortal",
-    "author": "糖人动漫",
-    "artist": "糖人动漫",
-    "coverImage": "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/cover/1-WhatDoYouDoWhenYouSuddenlyBecomeAnImmortal_.jpg",
-    "status": "Ongoing",
-    "releaseYear": 2022,
-    "genres": ["Action", "Fantasy", "Adventure"],
-    "description": "When your soul goes into others, others are also going into you. On this day, Lin Fan and the Saintess transmigrated at the same time, and later found out that they could transmigrate infinitely! Constantly going back and forth between the two time and space, the two's chaotic journey through the immortal cultivation began. \"Excuse me, your name is...\"",
-    "chapters": [
-      {
-        "number": 182,
-        "title": "Love Story Of A Demoness",
-        "releaseDate": "2024-11-17",
-        "pages": [
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/1.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/2.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/3.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/4.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/5.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/6.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/7.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/8.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/9.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/10.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/11.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/12.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/13.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/14.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/15.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/16.jpg"
+    {
+        "id": "1",
+        "title": "What Do You Do When You Suddenly Become An Immortal",
+        "author": "糖人动漫",
+        "artist": "糖人动漫",
+        "coverImage": "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/cover/1-WhatDoYouDoWhenYouSuddenlyBecomeAnImmortal_.jpg",
+        "status": "Ongoing",
+        "releaseYear": 2022,
+        "genres": [
+            "Action",
+            "Fantasy",
+            "Wuxia",
+            "Adventure"
+        ],
+        "description": "When your soul goes into others, others are also going into you. On this day, Lin Fan and the Saintess transmigrated at the same time, and later found out that they could transmigrate infinitely! Constantly going back and forth between the two time and space, the two's chaotic journey through the immortal cultivation began. \"Excuse me, your name is...\"",
+        "chapters": [
+            {
+                "number": 182,
+                "title": "Love Story Of A Demoness",
+                "releaseDate": "2024-11-17",
+                "pages": [
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/1.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/2.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/3.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/4.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/5.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/6.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/7.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/8.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/9.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/10.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/11.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/12.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/13.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/14.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/15.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch182/16.jpg"
+                ]
+            },
+            {
+                "number": 183,
+                "title": "Online Class Is Here",
+                "releaseDate": "2024-12-02",
+                "pages": [
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/1.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/2.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/3.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/4.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/5.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/6.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/7.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/8.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/9.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/10.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/11.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/12.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/13.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/14.jpg",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/15.jpg"
+                ]
+            }
         ]
-      },
-      {
-        "number": 183,
-        "title": "Online Class Is Here",
-        "releaseDate": "2024-12-02",
-        "pages": [
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/1.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/2.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/3.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/4.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/5.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/6.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/7.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/8.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/9.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/10.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/11.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/12.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/13.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/14.jpg",
-          "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/1/ch183/15.jpg"
+    },
+    {
+        "id": "2",
+        "title": "If Her Flag Breaks",
+        "author": "Takei Touka, Nagian",
+        "artist": "Takei Touka, Nagian",
+        "coverImage": "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/cover/2-IfHerFlagBreaks.jpg",
+        "status": "Ongoing",
+        "releaseYear": 2011,
+        "genres": [
+            "Romance",
+            "Comedy",
+            "Harem",
+            "Drama",
+            "School Life",
+            "Fantasy",
+            "Slice of Life",
+            "Supernatural",
+            "Mystery",
+            "Adaptation"
+        ],
+        "description": "Hatate Souta, a young man who can see the 'flags' that stand at the crossroads of life, transferred to 'Hatagaya Academy', a prestigious school in the metropolitan area. Not only does he meet beautiful girls in his busy school life, he even goes as far as living with them under the same roof! Surrounded by these flags, this enviable romantic comedy begins!",
+        "chapters": [
+            {
+                "number": 26,
+                "title": "Chapter 26",
+                "releaseDate": "2025-01-11",
+                "pages": [
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/1.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/2.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/3.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/4.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/5.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/6.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/7.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/8.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/9.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/10.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/11.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/12.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/13.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/14.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/15.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/16.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/17.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/18.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/19.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/20.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/21.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/22.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/23.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/24.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/25.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/26.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/27.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/28.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/29.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/30.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/31.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/32.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/33.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/34.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/35.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/36.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/37.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/38.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/39.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/40.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/41.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/42.png",
+                    "https://raw.githubusercontent.com/GuptaAman777/guptaaman777-imagehosting/main/2/ch26/43.png"
+                ]
+            }
         ]
-      }
-    ]
-  }
+    }
 ]
