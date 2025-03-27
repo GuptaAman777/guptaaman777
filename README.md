@@ -71,6 +71,6 @@ GuptaAman777 is designed to be the gateway for fans seeking translated comics. T
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/GuptaAman777.git
+   git clone https://github.com/GuptaAman777/guptaaman777.git
    
 Note: You can only clone this git for educational purposes, if you want to use this template/theme for your own website, you must contact **GuptaAman777** first and ask for permission. You also have to give credits somewhere in the website where it is clearly visible, with readable font, occupacy, size, and position.
