@@ -124,7 +124,7 @@
     },
     {
       repo: 'guptaaman777',
-      title: 'GuptaAman777 Liquid Glass Hub',
+      title: 'GuptaAman777 Liquid Glass Portfolio',
       category: 'web',
       featured: false,
       icon: 'fa-droplet',
@@ -132,19 +132,19 @@
       language: 'HTML · CSS · JS',
       langColor: '#f1e05a',
       starsFallback: 0,
-      summary: 'This website—redesigned with an Apple-inspired Liquid Glass material system, interactive project inspector, Dark/Frost glass toggle, and integrated manga/manhwa chapter reader.',
-      tags: ['Liquid Glass', 'GitHub Pages', 'JSON Reader', 'Zero Build'],
+      summary: 'Personal portfolio site built with an Apple-inspired Liquid Glass material system, interactive ImageTool module explorer, Dark/Frost glass toggle, and live GitHub repository hydration.',
+      tags: ['Liquid Glass', 'GitHub Pages', 'GitHub API', 'Zero Build'],
       highlights: [
         'Pointer-tracked specular refraction and dynamic ambient mesh backdrop',
-        'Live GitHub repository metadata hydration with graceful fallback',
-        'Preserves full comic catalog (details.html) & vertical strip reader (reader.html)'
+        'Live GitHub repository metadata hydration with static fallback',
+        'Interactive ImageTool module & 6-palette theme previewer'
       ],
       repoUrl: 'https://github.com/GuptaAman777/guptaaman777',
       releaseUrl: 'https://guptaaman777.me/guptaaman777/'
     },
     {
       repo: 'guptaaman777-imagehosting',
-      title: 'Scanlation Media CDN',
+      title: 'Static Media Hosting Repo',
       category: 'web',
       featured: false,
       icon: 'fa-cloud-arrow-up',
@@ -152,11 +152,11 @@
       language: 'HTML · Static CDN',
       langColor: '#e34c26',
       starsFallback: 0,
-      summary: 'Dedicated static asset and chapter image repository serving comic covers, chapter pages, and team avatars to the GuptaAman777 web reader.',
-      tags: ['Media Assets', 'GitHub Raw', 'Comics CDN'],
+      summary: 'Dedicated static asset repository on GitHub for hosting images, banners, and media assets.',
+      tags: ['Media Assets', 'GitHub Raw', 'Static CDN'],
       highlights: [
-        'Hosts organized chapter page directories & high-res series covers',
-        'Powers instant client-side rendering in reader.html'
+        'Organized static image directories served via GitHub Raw',
+        'Lightweight zero-server asset storage'
       ],
       repoUrl: 'https://github.com/GuptaAman777/guptaaman777-imagehosting',
       releaseUrl: ''

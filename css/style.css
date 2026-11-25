@@ -949,154 +949,77 @@ section {
 }
 
 /* ==========================================================================
-   Scanlations / Comics & Chapters (Preserved + Liquid Glass)
+   Solo Profile & Scanlator Workflow Section
    ========================================================================== */
 
-.comics-grid {
+.solo-bento {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 22px;
+  align-items: stretch;
 }
 
-.comic-card {
-  cursor: pointer;
+.solo-card {
+  padding: 30px;
   display: flex;
   flex-direction: column;
-}
-
-.comic-cover-wrap {
-  position: relative;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-  border-bottom: 1px solid var(--glass-border);
-}
-
-.comic-cover-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.55s var(--ease-spring);
-}
-
-.comic-card:hover .comic-cover-wrap img {
-  transform: scale(1.06);
-}
-
-.comic-status-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 5px 11px;
-  border-radius: var(--radius-pill);
-  font-size: 0.74rem;
-  font-weight: 700;
-  background: rgba(6, 9, 19, 0.72);
-  backdrop-filter: blur(12px);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.comic-body {
-  padding: 18px 20px;
-}
-
-.comic-body h3 {
-  font-size: 1.04rem;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
-.comic-body p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 6px;
-}
-
-.chapter-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 16px;
-  margin-top: 24px;
-}
-
-.chapter-card {
-  padding: 18px;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  cursor: pointer;
-}
-
-.chapter-thumb {
-  width: 64px;
-  height: 86px;
-  border-radius: 12px;
-  object-fit: cover;
-  border: 1px solid var(--glass-border);
-  flex-shrink: 0;
-}
-
-.chapter-meta h4 {
-  font-size: 0.96rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.chapter-meta .ch-num {
-  font-size: 0.84rem;
-  color: var(--accent);
-  font-weight: 600;
-  margin-top: 4px;
-}
-
-.chapter-meta .ch-date {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
-
-/* ==========================================================================
-   Team Grid & Modal
-   ========================================================================== */
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 18px;
 }
 
-.team-card {
-  padding: 22px;
-  text-align: center;
-  cursor: pointer;
+.solo-header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
 }
 
-.team-avatar {
+.solo-avatar {
   width: 78px;
   height: 78px;
   border-radius: 24px;
   object-fit: cover;
   border: 1.5px solid var(--glass-border-strong);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.5);
 }
 
-.team-role {
-  font-size: 0.82rem;
+.solo-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.pillar-card {
+  padding: 20px;
+  border-radius: var(--radius-md);
+}
+
+.pillar-card i {
   color: var(--accent);
-  font-weight: 600;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
 }
 
-.team-about {
+.pillar-card h4 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.pillar-card p {
   font-size: 0.85rem;
   color: var(--text-secondary);
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+}
+
+@media (max-width: 980px) {
+  .solo-bento {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .solo-pillars {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ==========================================================================
