@@ -420,6 +420,7 @@ button, input, textarea, select {
 
 section {
   padding: 56px 0;
+  scroll-margin-top: 90px;
 }
 
 .section-head {
@@ -989,20 +990,29 @@ section {
 }
 
 .pillar-card {
-  padding: 20px;
+  padding: 22px;
   border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .pillar-card i {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--accent-soft);
   color: var(--accent);
-  font-size: 1.15rem;
-  margin-bottom: 10px;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
 }
 
 .pillar-card h4 {
   font-size: 0.98rem;
   font-weight: 700;
-  margin-bottom: 6px;
 }
 
 .pillar-card p {
