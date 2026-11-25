@@ -1,237 +1,102 @@
-/* Global Keyframe Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* Comic Details Page — Liquid Glass Styling */
 
-@keyframes subtleFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-@keyframes pageLoadAnimation {
-  from { 
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to { 
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Inherit Main Site Styles */
-@import url("css/style.css");
-
-/* Comic Detail Section */
-.comic-detail {
-  text-align: center;
-  padding: 50px 0;
-}
-
-#comic-title {
-  color: var(--primary-color);
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
-  animation: subtleFloat 4s infinite;
-}
-
-#cover-image {
-  display: block;
-  margin: 20px auto;
-  max-width: 250px; /* Smaller Cover Image */
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#cover-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-}
-
-#comic-info {
-  background: var(--background-card);
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-#comic-info p {
-  margin: 10px 0;
-  color: var(--text-light);
-}
-
-#comic-info strong {
-  color: var(--primary-color);
-}
-
-/* Chapters Section */
-.chapters {
-  padding: 60px 0 60px 0;
-  background: var(--background-section);
-  text-align: center;
-  opacity: 0;
-  animation: fadeIn 0.8s forwards 0.6s;
-  border-radius: 12px; /* Added border-radius for rounded corners */
-  margin-bottom: 50px; /*optional margin to give space between chapter and footer*/
-}
-
-.chapters h2 {
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  align-items: center;
-}
-
-.chapter-list {
+.details-hero {
+  padding: 32px;
   display: grid;
-  align-items: center;
-  justify-content: centre;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  margin-top: 40px;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 18px;
 }
 
-.chapter-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--background-card);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.5s forwards;
-    animation-delay: calc(0.7s + (var(--delay) * 0.1s));
-    margin: 0 auto;
-    max-width: 80%;
-}
-
-@media (max-width: 768px) { /* Mobile styles */
-    .chapter-card {
-        width: 95%; /* Reduce overall width */
-        max-width: 360px; /* Ensure it doesn't stretch too wide */
-        padding: 10px; /* Reduce padding for a compact look */
-        font-size: 0.8rem; /* Make text even smaller */
-        flex-direction: column; /* Stack content */
-        text-align: center;
-    }
-
-    .chapter-card h3 {
-        font-size: 0.85rem; /* Reduce heading size */
-    }
-
-    .chapter-card p {
-        font-size: 0.8rem; /* Reduce paragraph text size */
-        word-wrap: break-word; /* Ensure proper wrapping */
-    }
-}
-
-.chapter-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-}
-
-.chapter-info {
-  text-align: left;
-}
-
-.chapter-info h3 {
-  font-size: 1.4rem;
-  margin: 0 0 10px;
-  color: var(--primary-color);
-}
-
-.chapter-info p {
-  color: var(--text-muted);
-  margin: 0;
-}
-
-.pages img {
-  width: 120px;
-  margin-right: 10px;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
-}
-
-.pages img:hover {
-  transform: scale(1.1);
-}
-
-/* Pagination Buttons */
-.show-more-container {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.read-chapter-btn {
-  background: var(--primary-color);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.read-chapter-btn:hover {
-  background: #e68a00;
-  transform: translateY(-3px);
-}
-
-.read-chapter-btn:disabled {
-  background: var(--text-muted);
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.read-chapter-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
+.details-cover {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition: all 0.6s;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border-strong);
+  box-shadow: var(--glass-shadow);
 }
 
-.read-chapter-btn:hover::before {
-  left: 100%;
+.details-meta h1 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
-#pageInfo {
+.genre-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 14px 0;
+}
+
+.details-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.fact-box {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--glass-bg-subtle);
+  border: 1px solid var(--glass-border);
+}
+
+.fact-box span {
+  display: block;
+  font-size: 0.74rem;
   color: var(--text-muted);
-  font-size: 1.1rem;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  #cover-image {
-    max-width: 180px;
+.fact-box strong {
+  font-size: 0.92rem;
+}
+
+.details-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+.chapters-panel {
+  margin-top: 28px;
+  padding: 28px;
+}
+
+.details-chapter-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.details-chapter-row {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+@media (max-width: 768px) {
+  .details-hero {
+    grid-template-columns: 1fr;
+    padding: 22px;
   }
 
-  .chapter-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .pages img {
-    width: 100px;
-    margin-bottom: 10px;
-  }
-
-  .show-more-container {
-    flex-direction: column;
+  .details-cover {
+    max-width: 240px;
   }
 }

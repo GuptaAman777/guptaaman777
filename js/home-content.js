@@ -1,141 +1,94 @@
-async function loadComics() {
-  const comicsCarousel = document.getElementById('comicsCarousel');
-  if (!comicsCarousel) return;
-  
-  try {
-    const response = await fetch('data/comics.json');
-    if (!response.ok) {
-      throw new Error('Failed to load comics data');
-    }
-    
-    const comics = await response.json();
-    
-    comicsCarousel.innerHTML = '';
-    
-    comics.forEach(comic => {
-      const comicCard = document.createElement('div');
-      comicCard.className = 'comic-card';
-      
-      const coverImage = comic.coverImage || 'assets/default-cover.jpg';
-      const status = comic.status || 'Unknown';
-      const author = comic.author || 'Unknown';
-      
-      comicCard.innerHTML = `
-        <div class="status">${status}</div>
-        <img src="${coverImage}" alt="${comic.title} Cover" onerror="this.src='assets/default-cover.jpg';" />
-        <h3>${comic.title}</h3>
-        <p>${author}</p>
-      `;
-      
-      comicCard.addEventListener('click', () => {
-        window.location.href = `details.html?id=${comic.id}`;
-      });
-      
-      comicsCarousel.appendChild(comicCard);
-    });
-    
-    if (comics.length === 0) {
-      comicsCarousel.innerHTML = '<div class="no-data">No comics available at the moment.</div>';
-    }
-    
-  } catch (error) {
-    const errorMsg = 'Error loading comics:';
-    console.error(handleError(errorMsg, error));
-    handleFetchError(comicsCarousel, 'Failed to load comics. Please try again later.');
-  }
-}
+/* Load Comics & Latest Chapter Releases into Liquid Glass Cards */
+(function () {
+  async function loadComics() {
+    const grid = document.getElementById('comicsCarousel');
+    if (!grid) return;
+    const esc = window.GlassUI.escapeHtml;
 
-async function loadChapters() {
-  const chapterList = document.getElementById('chapterList');
-  if (!chapterList) return;
-  
-  try {
-    const response = await fetch('data/chapters.json');
-    if (!response.ok) {
-      throw new Error('Failed to load chapters data');
-    }
-    
-    const chapters = await response.json();
-    
-    chapters.sort((a, b) => {
-      const dateA = new Date(a.releaseDate || 0);
-      const dateB = new Date(b.releaseDate || 0);
-      
-      if (isNaN(dateA.getTime())) return 1;
-      if (isNaN(dateB.getTime())) return -1;
-      
-      return dateB - dateA;
-    });
-    
-    chapterList.innerHTML = '';
-    
-    chapters.forEach(chapter => {
-      const chapterCard = document.createElement('div');
-      chapterCard.className = 'chapter-card';
-      
-      let formattedDate = 'Unknown Date';
-      try {
-        const releaseDate = new Date(chapter.releaseDate);
-        if (!isNaN(releaseDate.getTime())) {
-          formattedDate = releaseDate.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric'
-          });
-        }
-      } catch (e) {
-        console.error(handleError('Error formatting chapter date', e));
+    try {
+      const res = await fetch('data/comics.json');
+      if (!res.ok) throw new Error('Failed to load comics');
+      const comics = await res.json();
+
+      if (!Array.isArray(comics) || comics.length === 0) {
+        grid.innerHTML = '<div class="glass-surface loading-state">No comics available yet.</div>';
+        return;
       }
-      
-      const coverImage = chapter.coverImage || 'assets/default-cover.jpg';
-      
-      chapterCard.innerHTML = `
-        <div class="chapter-info">
-          <h3>${chapter.comicTitle}</h3>
-          <p class="chapter-title">${chapter.title || ''}</p>
-          <p class="chapter-number">Chapter ${chapter.chapterNumber}</p>
-          <p class="chapter-date">Released: ${formattedDate}</p>
-          <button class="read-button">Read Now</button>
-        </div>
-        <div class="chapter-logo">
-          <img src="${coverImage}" alt="${chapter.comicTitle} Logo" onerror="this.src='assets/default-cover.jpg';" />
-        </div>
-      `;
-      
-      const readButton = chapterCard.querySelector('.read-button');
-      if (readButton) {
-        readButton.addEventListener('click', (e) => {
-          e.stopPropagation();
-          
-          if (chapter.id) {
-            window.location.href = `reader.html?comicId=${chapter.comicId}&chapter=${chapter.chapterNumber}`;
-          } else {
-            alert(`You are about to read ${chapter.comicTitle} - Chapter ${chapter.chapterNumber}: ${chapter.title || ''}`);
-          }
+
+      grid.innerHTML = comics.map((comic) => `
+        <article class="glass-surface glass-card-hover comic-card" data-id="${esc(comic.id)}">
+          <div class="comic-cover-wrap">
+            <img src="${esc(comic.coverImage || 'assets/logo.png')}" alt="${esc(comic.title)} Cover" onerror="this.src='assets/logo.png';" />
+            <span class="comic-status-badge">${esc(comic.status || 'Ongoing')}</span>
+          </div>
+          <div class="comic-body">
+            <h3>${esc(comic.title)}</h3>
+            <p>${esc(comic.author || 'Unknown Author')}</p>
+          </div>
+        </article>
+      `).join('');
+
+      grid.querySelectorAll('.comic-card').forEach((card) => {
+        card.addEventListener('click', () => {
+          window.location.href = `details.html?id=${encodeURIComponent(card.dataset.id)}`;
         });
-      }
-      
-      chapterCard.addEventListener('click', () => {
-        const readButton = chapterCard.querySelector('.read-button');
-        if (readButton) readButton.click();
       });
-      
-      chapterList.appendChild(chapterCard);
-    });
-    
-    if (chapters.length === 0 || !chapters.filter(c => c).length) {
-      chapterList.innerHTML = '<div class="no-data">No chapters available at the moment.</div>';
+    } catch (err) {
+      console.error(err);
+      grid.innerHTML = '<div class="glass-surface loading-state">Unable to load comics right now.</div>';
     }
-    
-  } catch (error) {
-    const errorMsg = 'Error loading chapters:';
-    console.error(handleError(errorMsg, error));
-    handleFetchError(chapterList, 'Failed to load chapters. Please try again later.');
   }
-}
 
-function handleFetchError(element, message) {
-  if (element) {
-    element.innerHTML = `<div class="error">${message}</div>`;
+  async function loadChapters() {
+    const list = document.getElementById('chapterList');
+    if (!list) return;
+    const esc = window.GlassUI.escapeHtml;
+
+    try {
+      const res = await fetch('data/chapters.json');
+      if (!res.ok) throw new Error('Failed to load chapters');
+      const chapters = await res.json();
+
+      if (!Array.isArray(chapters) || chapters.length === 0) {
+        list.innerHTML = '<div class="glass-surface loading-state">No chapters available yet.</div>';
+        return;
+      }
+
+      chapters.sort((a, b) => new Date(b.releaseDate || 0) - new Date(a.releaseDate || 0));
+
+      list.innerHTML = chapters.map((ch) => {
+        const d = new Date(ch.releaseDate);
+        const dateLabel = isNaN(d.getTime())
+          ? 'Unknown Date'
+          : d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+        return `
+          <article class="glass-surface glass-card-hover chapter-card" data-comic="${esc(ch.comicId)}" data-chapter="${esc(ch.chapterNumber)}">
+            <div class="chapter-meta">
+              <h4>${esc(ch.comicTitle)}</h4>
+              <div class="ch-num">Chapter ${esc(ch.chapterNumber)}</div>
+              <div class="ch-date">Released ${esc(dateLabel)}</div>
+            </div>
+            <img class="chapter-thumb" src="${esc(ch.coverImage || 'assets/logo.png')}" alt="${esc(ch.comicTitle)}" onerror="this.src='assets/logo.png';" />
+          </article>
+        `;
+      }).join('');
+
+      list.querySelectorAll('.chapter-card').forEach((card) => {
+        card.addEventListener('click', () => {
+          const comicId = encodeURIComponent(card.dataset.comic);
+          const chNum = encodeURIComponent(card.dataset.chapter);
+          window.location.href = `reader.html?comicId=${comicId}&chapter=${chNum}`;
+        });
+      });
+    } catch (err) {
+      console.error(err);
+      list.innerHTML = '<div class="glass-surface loading-state">Unable to load chapters right now.</div>';
+    }
   }
-}
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadComics();
+    loadChapters();
+  });
+})();
