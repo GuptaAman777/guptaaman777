@@ -49,15 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const data = await res.json().catch(() => ({}));
-        if (!res.ok || data.success === 'false' || data.success === false) {
+        if (!res.ok) {
           throw new Error(data.message || 'Failed to send message');
+        }
+        if (data.success === 'false' || data.success === false) {
+          window.GlassUI.showToast(data.message || 'Form activation required—check gamangupta777@gmail.com.');
+          return;
         }
 
         contactForm.reset();
-        window.GlassUI.showToast('Message sent! Check your inbox if activating FormSubmit for the first time.');
+        window.GlassUI.showToast('Message sent! Thank you for reaching out.');
       } catch (err) {
         console.error('FormSubmit error:', err);
-        window.GlassUI.showToast('Could not send right now—please email gamangupta777@gmail.com directly.');
+        window.GlassUI.showToast(err.message || 'Could not send right now—please email gamangupta777@gmail.com directly.');
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
