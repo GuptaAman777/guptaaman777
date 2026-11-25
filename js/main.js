@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       try {
-        const res = await fetch('https://formsubmit.co/ajax/gamangupta777@gmail.com', {
+        const res = await fetch('https://formsubmit.co/ajax/ce0aa415e6a884e2c54bb1d9cb9eb360', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
