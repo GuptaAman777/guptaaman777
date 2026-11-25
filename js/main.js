@@ -12,6 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const copyBinanceBtn = document.getElementById('copyBinanceBtn');
+  if (copyBinanceBtn) {
+    copyBinanceBtn.addEventListener('click', async () => {
+      const value = copyBinanceBtn.dataset.copy || '759439049';
+      try {
+        await navigator.clipboard.writeText(value);
+        window.GlassUI.showToast(`Copied Binance ID: ${value}`);
+      } catch {
+        window.GlassUI.showToast(`Binance ID: ${value}`);
+      }
+    });
+  }
+
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
