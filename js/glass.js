@@ -44,6 +44,9 @@
   }
 
   function initSpecularTracking() {
+    if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768) {
+      return;
+    }
     document.addEventListener('pointermove', (e) => {
       const target = e.target.closest('.glass-surface');
       if (!target) return;

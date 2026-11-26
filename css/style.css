@@ -70,6 +70,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -78,6 +80,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-x: clip;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.45s var(--ease-spring), color 0.35s ease;
@@ -111,7 +114,10 @@ button, input, textarea, select {
 
 .ambient-canvas {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: -2;
   overflow: hidden;
   pointer-events: none;
@@ -161,7 +167,10 @@ button, input, textarea, select {
 
 .ambient-grid {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: -1;
   pointer-events: none;
   background-image:
@@ -209,7 +218,10 @@ button, input, textarea, select {
 .glass-surface::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   border-radius: inherit;
   background: radial-gradient(
     460px circle at var(--mx, 50%) var(--my, 0%),
@@ -1119,7 +1131,10 @@ section {
 
 .glass-modal-backdrop {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 999;
   display: none;
   align-items: center;
@@ -1223,8 +1238,9 @@ section {
 @media (max-width: 980px) {
   .hero-bento,
   .spotlight-body,
-  .contact-bento {
-    grid-template-columns: 1fr;
+  .contact-bento,
+  .solo-bento {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .projects-grid {
@@ -1237,12 +1253,22 @@ section {
 }
 
 @media (max-width: 768px) {
+  .site-header {
+    padding: 0 14px;
+    top: 12px;
+  }
+
+  .nav-capsule {
+    padding: 9px 14px;
+    gap: 10px;
+  }
+
   .nav-links {
     display: none;
     position: absolute;
     top: calc(100% + 10px);
-    left: 20px;
-    right: 20px;
+    left: 14px;
+    right: 14px;
     flex-direction: column;
     align-items: stretch;
     padding: 14px;
@@ -1263,7 +1289,7 @@ section {
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .project-card.featured {
@@ -1271,16 +1297,177 @@ section {
   }
 
   .hero-main,
-  .spotlight-shell {
-    padding: 24px;
+  .spotlight-shell,
+  .solo-card,
+  .contact-form-card {
+    padding: 24px 20px;
   }
 
   .contact-links-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .matrix-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 4px;
+  }
+
+  .palette-bar {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  section {
+    padding: 38px 0;
+  }
+
+  .brand-link span {
+    font-size: 0.94rem;
+  }
+
+  .nav-actions .glass-btn span {
+    display: none;
+  }
+
+  .nav-actions .glass-btn {
+    padding: 8px 12px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.65rem, 6.5vw, 2.35rem);
+  }
+
+  .hero-main,
+  .spotlight-shell,
+  .solo-card,
+  .contact-form-card {
+    padding: 20px 16px;
+    border-radius: 22px;
+  }
+
+  .project-card,
+  .module-detail-card,
+  .matrix-panel,
+  .pillar-card,
+  .profile-glass-card {
+    padding: 18px 15px;
+  }
+
+  .stat-tile {
+    padding: 14px;
+  }
+
+  .stat-value {
+    font-size: 1.3rem;
+  }
+
+  .profile-header,
+  .solo-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .hero-cta-row .glass-btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .footer-glass {
+    padding: 22px 18px;
+  }
+}
+
+/* Prevent wide children from overflowing mobile grid tracks */
+.glass-surface,
+.hero-side,
+.module-detail-card,
+.matrix-panel,
+.contact-links-grid {
+  min-width: 0;
+}
+
+/* ==========================================================================
+   Smartphone & Touch Performance Mode (Lightweight Glass)
+   ========================================================================== */
+
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  .ambient-orb {
+    animation: none;
+    filter: blur(64px);
+    opacity: 0.38;
+  }
+
+  .ambient-grid {
+    display: none;
+  }
+
+  /* Replace expensive multi-layer backdrop-filter with fast translucent tint + specular rim */
+  .glass-surface,
+  .glass-pill,
+  .glass-btn,
+  .nav-links,
+  .glass-toast {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .glass-surface {
+    background: linear-gradient(145deg, rgba(20, 29, 52, 0.88) 0%, rgba(11, 17, 32, 0.92) 100%);
+    box-shadow:
+      0 12px 28px -10px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.28);
+  }
+
+  .nav-capsule {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.84);
+  }
+
+  .nav-links {
+    background: rgba(13, 20, 38, 0.96);
+  }
+
+  [data-theme="light"] .glass-surface {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 246, 253, 0.94) 100%);
+  }
+
+  [data-theme="light"] .nav-capsule {
+    background: rgba(255, 255, 255, 0.86);
+  }
+
+  [data-theme="light"] .nav-links {
+    background: rgba(255, 255, 255, 0.96);
+  }
+
+  .glass-surface::before {
+    display: none;
+  }
+
+  .glass-card-hover:hover {
+    transform: none;
+  }
+
+  .glass-modal-backdrop {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(4, 7, 15, 0.84);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-orb {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
