@@ -1,5 +1,7 @@
 /* Personal Page Interactions: Smooth Scroll & Copy Buttons */
 document.addEventListener('DOMContentLoaded', () => {
+  const prefersReduced = window.matchMedia('(max-width: 768px), (prefers-reduced-motion: reduce)').matches;
+
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
       const href = anchor.getAttribute('href');
@@ -8,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!target) return;
       e.preventDefault();
       const top = target.getBoundingClientRect().top + window.scrollY - 92;
-      window.scrollTo({ top, behavior: 'smooth' });
+      window.scrollTo({ top, behavior: prefersReduced ? 'auto' : 'smooth' });
     });
   });
 

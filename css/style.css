@@ -101,6 +101,41 @@ button, input, textarea, select {
   color: inherit;
 }
 
+/* Inline SVG Icon Primitive */
+.gi {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+  flex-shrink: 0;
+}
+
+.gi-star {
+  color: var(--warning);
+}
+
+.gi-spin {
+  animation: giSpin 1s linear infinite;
+}
+
+@keyframes giSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* OLED Black Palette Support (Dark Mode) */
+[data-palette="oled"]:not([data-theme="light"]) {
+  --bg-base: #000000;
+  --bg-elevated: #050507;
+  --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.85) 100%);
+  --glass-bg-strong: linear-gradient(135deg, rgba(14, 14, 18, 0.92) 0%, rgba(0, 0, 0, 0.96) 100%);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.12);
+}
+
+[data-palette="oled"]:not([data-theme="light"]) .ambient-orb {
+  opacity: 0.14;
+}
+
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -736,7 +771,8 @@ section {
   color: var(--text-secondary);
 }
 
-.feature-checklist i {
+.feature-checklist i,
+.feature-checklist .gi {
   color: var(--accent);
   margin-top: 4px;
 }
@@ -1009,9 +1045,11 @@ section {
   gap: 8px;
 }
 
-.pillar-card i {
+.pillar-card i,
+.pillar-card .gi {
   width: 38px;
   height: 38px;
+  padding: 9px;
   border-radius: 11px;
   background: var(--accent-soft);
   color: var(--accent);
@@ -1067,9 +1105,11 @@ section {
   gap: 14px;
 }
 
-.contact-tile i {
+.contact-tile i,
+.contact-tile > .gi {
   width: 40px;
   height: 40px;
+  padding: 10px;
   border-radius: 12px;
   display: inline-flex;
   align-items: center;
@@ -1208,6 +1248,28 @@ section {
 .footer-note {
   color: var(--text-muted);
   font-size: 0.84rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+}
+
+.footer-links a {
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-links a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.footer-links a[aria-current="page"] {
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -1397,20 +1459,33 @@ section {
    ========================================================================== */
 
 @media (max-width: 768px), (hover: none) and (pointer: coarse) {
-  .ambient-orb {
-    animation: none;
-    filter: blur(64px);
-    opacity: 0.38;
+  html {
+    scroll-behavior: auto;
   }
 
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Completely remove blurred fixed orbs & grid layers to save GPU memory & battery */
+  .ambient-canvas,
+  .ambient-orb,
   .ambient-grid {
     display: none;
   }
 
-  /* Replace expensive multi-layer backdrop-filter with fast translucent tint + specular rim */
+  body {
+    background:
+      radial-gradient(circle at 50% 0%, var(--accent-soft), transparent 46%),
+      var(--bg-base);
+    transition: none;
+  }
+
+  /* Replace expensive multi-layer backdrop-filter (including sticky header) with fast opaque surfaces */
   .glass-surface,
   .glass-pill,
   .glass-btn,
+  .nav-capsule,
   .nav-links,
   .glass-toast {
     backdrop-filter: none;
@@ -1418,46 +1493,70 @@ section {
   }
 
   .glass-surface {
-    background: linear-gradient(145deg, rgba(20, 29, 52, 0.88) 0%, rgba(11, 17, 32, 0.92) 100%);
+    background: linear-gradient(145deg, rgba(20, 29, 52, 0.92) 0%, rgba(11, 17, 32, 0.95) 100%);
     box-shadow:
-      0 12px 28px -10px rgba(0, 0, 0, 0.5),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.28);
+      0 8px 20px -8px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+    transition: none;
   }
 
   .nav-capsule {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(15, 23, 42, 0.84);
+    background: rgba(11, 17, 32, 0.96);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
   }
 
   .nav-links {
-    background: rgba(13, 20, 38, 0.96);
+    background: rgba(11, 17, 32, 0.98);
+  }
+
+  [data-palette="oled"]:not([data-theme="light"]) .glass-surface {
+    background: linear-gradient(145deg, rgba(16, 16, 20, 0.96) 0%, rgba(0, 0, 0, 0.98) 100%);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  }
+
+  [data-palette="oled"]:not([data-theme="light"]) .nav-capsule,
+  [data-palette="oled"]:not([data-theme="light"]) .nav-links {
+    background: rgba(6, 6, 8, 0.98);
   }
 
   [data-theme="light"] .glass-surface {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 246, 253, 0.94) 100%);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.94) 0%, rgba(241, 246, 253, 0.96) 100%);
   }
 
   [data-theme="light"] .nav-capsule {
-    background: rgba(255, 255, 255, 0.86);
+    background: rgba(248, 251, 255, 0.96);
   }
 
   [data-theme="light"] .nav-links {
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.98);
   }
 
   .glass-surface::before {
     display: none;
   }
 
-  .glass-card-hover:hover {
+  .glass-card-hover:hover,
+  .glass-btn:hover {
     transform: none;
   }
 
   .glass-modal-backdrop {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    background: rgba(4, 7, 15, 0.84);
+    background: rgba(4, 7, 15, 0.88);
+  }
+
+  /* Skip layout & paint for off-screen sections until scrolled near */
+  section:not(.hero-section) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 420px;
+  }
+
+  /* Instant render without scroll-reveal observers/transitions on mobile */
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
